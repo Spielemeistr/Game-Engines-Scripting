@@ -1,0 +1,19 @@
+Im Ordner Assets befinden sich Diverse Unterordner
+
+Enemy: Beinhaltet das Enemy Mesh sowie die Animationen
+
+Materials: Beinhaltet die von mir erstellten Materialien
+
+NokoBot: Ist das AssetPack für die Pistole und die Kugeln
+
+Prefabs: Beinhalten die von mir erstellten Prefabs
+
+Scenes: Beinhalten die 2 von mir erstellten Scenen
+
+  - PrefabScene: Enthällt alle Prefabs
+  - SampleScene: Enthällt das spielbare Level
+
+Scripts: Enthällt die von mir erstellten Scripts
+
+
+Der Rest ist von Unity Generiert

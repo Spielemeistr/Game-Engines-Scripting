@@ -3,13 +3,7 @@ using UnityEngine;
 
 public class BulletMove : MonoBehaviour
 {
-    public float speed = 1f;
-        
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float speed = 1f;
 
     // Update is called once per frame
     void Update()
@@ -27,8 +21,6 @@ public class BulletMove : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<EnemyMovement>().Hit();
-            
-            GameManager.Instance.IncreasKillCount();
         }
     }
 }

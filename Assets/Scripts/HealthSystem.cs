@@ -4,11 +4,12 @@ using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
-    public int Health = 3;
+    [SerializeField] private int Health = 3;
 
     private int CurrentHealth = 0;
 
-    public Image Heathbar;
+    [SerializeField] private Image Heathbar;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

@@ -7,21 +7,21 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public GameObject Enemy;
+    [SerializeField] private GameObject Enemy;
 
-    public List<GameObject> SpawnPoints;
+    [SerializeField] private List<GameObject> SpawnPoints;
 
-    public float SpawnDuration = 3;
+    [SerializeField] private float SpawnDuration = 3;
 
     private int SpawnPointsCount;
 
     private int PlayerKillCount = 0;
 
-    public int MaxSpawnCount = 10;
+    [SerializeField] private int MaxSpawnCount = 10;
 
     private int CurrentSpawnCount = 0;
 
-    public GameObject FinishText;
+    [SerializeField] private GameObject FinishText;
 
     private void Awake()
     {
@@ -50,17 +50,15 @@ public class GameManager : MonoBehaviour
     void SpawnEnemy()
     {
         CurrentSpawnCount++;
+        
+        int Random = UnityEngine.Random.Range(0, SpawnPointsCount);
+        
+        Instantiate(Enemy, SpawnPoints[Random].transform.position, Quaternion.identity);
 
         if (CurrentSpawnCount >= MaxSpawnCount)
         {
             CancelInvoke("SpawnEnemy");
-            
-            return;
         }
-        
-        int Random = UnityEngine.Random.Range(0, SpawnPointsCount - 1);
-        
-        Instantiate(Enemy, SpawnPoints[Random].transform.position, Quaternion.identity);
     }
 
     public void IncreasKillCount()

@@ -5,19 +5,19 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public NavMeshAgent Pawn;
+    [SerializeField] private NavMeshAgent Pawn;
 
     private GameObject Target;
 
-    public GameObject Bullet;
+    [SerializeField] private GameObject Bullet;
 
-    public GameObject Spawnpoint;
+    [SerializeField] private GameObject Spawnpoint;
 
     private Animator Anim;
 
     private bool CanShoot = true;
     
-    public float CooldownBetweenStages = 0.2f;
+    [SerializeField] private float CooldownBetweenStages = 0.2f;
 
     private bool Dead = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -73,17 +73,18 @@ public class EnemyMovement : MonoBehaviour
         
         Invoke("SetShootAnimFalse", CooldownBetweenStages);
     }
-
-    void ResetCanShoot()
-    {
-        CanShoot = true;
-    }
+    
 
     public void Hit()
     {
+        if (!Dead)
+        {
+            Anim.SetBool("Death", true);
+            Destroy(this.GameObject(), 4);
+            GameManager.Instance.IncreasKillCount();
+        }
+        
         Dead = true;
-        Anim.SetBool("Death", true);
-        Destroy(this.GameObject(), 4);
     }
     
     void SetShootAnimFalse()
@@ -91,7 +92,5 @@ public class EnemyMovement : MonoBehaviour
         Anim.SetBool("Shoot", false);
 
         CanShoot = this;
-
-        //Invoke("ResetCanShoot", CooldownBetweenStages);
     }
 }

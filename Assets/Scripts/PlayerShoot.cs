@@ -6,13 +6,13 @@ public class PlayerShoot : MonoBehaviour
 {
     private InputAction _shoot;
 
-    public GameObject BulletObject;
+    [SerializeField] private GameObject BulletObject;
 
-    public GameObject SpawnPoint;
+    [SerializeField] private GameObject SpawnPoint;
 
     private bool CanShoot = true;
 
-    public float Cooldown = 1f;
+    [SerializeField] private float Cooldown = 1f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

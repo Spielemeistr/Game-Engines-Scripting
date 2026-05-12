@@ -4,9 +4,9 @@ public class TimeController : MonoBehaviour
 {
     private PlayerController _Controller;
 
-    public float SlowTimeValue = 0.05f;
+    [SerializeField] private float SlowTimeValue = 0.05f;
 
-    public float TransitionSpeed = 1;
+    [SerializeField] private float TransitionSpeed = 1;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

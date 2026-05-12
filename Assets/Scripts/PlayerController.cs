@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public CharacterController _CharacterController;
 
-    public Camera _Camera;
+    [SerializeField] private Camera _Camera;
 
     private InputAction _move, _look, _jump;
 
